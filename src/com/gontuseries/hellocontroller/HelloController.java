@@ -6,6 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
+@RequestMapping("/greet")
 public class HelloController {
 	
 	@RequestMapping("/welcome")
@@ -18,7 +19,7 @@ public class HelloController {
 	
 	@RequestMapping("/hi")
 	public ModelAndView hiWorld(){
-		ModelAndView model = new ModelAndView("HiPage");
+		ModelAndView model = new ModelAndView("HelloPage");
 		model.addObject("msg", "hi world");
 		
 		return model;
