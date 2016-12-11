@@ -1,5 +1,7 @@
 package com.gontuseries.studentadmissioncontroller;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +20,11 @@ public class StudentAdmissionController {
 	}
 	
 	@RequestMapping(value="/submitAdmissionForm.html", method = RequestMethod.POST)
-	public ModelAndView submitAdmissionForm(@RequestParam(value="studentName", defaultValue="NoName") String name, @RequestParam(value="studentHobby", defaultValue="NoHobby") String hobby) {
+	public ModelAndView submitAdmissionForm(@RequestParam Map<String, String> reqPar)
+	
+ {
+		String name = reqPar.get("studentName");
+		String hobby = reqPar.get("studentHobby");
 		
 		ModelAndView model = new ModelAndView("submitAdmissionForm");
 		model.addObject("studName", name);
