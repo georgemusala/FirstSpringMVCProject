@@ -8,10 +8,18 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloController {
 	
-	@RequestMapping("/welcome.html")
-	public ModelAndView helloworld(){
+	@RequestMapping("/welcome")
+	public ModelAndView helloWorld(){
 		ModelAndView model = new ModelAndView("HelloPage");
 		model.addObject("msg", "hello world");
+		
+		return model;
+	}
+	
+	@RequestMapping("/hi")
+	public ModelAndView hiWorld(){
+		ModelAndView model = new ModelAndView("HiPage");
+		model.addObject("msg", "hi world");
 		
 		return model;
 	}
